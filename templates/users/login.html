@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="">
+	<link rel="icon" href="">
+	<!--     Fuentes e Iconos     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+	{% load static%}
+	<link rel="stylesheet" href="{% static 'css/material-dashboard.css' %}"> 
+	<title>Login | NTC</title>
+</head>
+<body class="off-canvas-sidebar login-page">
+	  <div class="wrapper wrapper-full-page">
+    
+    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('{%static '/img/login.jpg'%}'); background-size: cover; background-position: top center;">
+      <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+      <div class="container">
+        <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+          <form class="form" method="post" action="{% url 'login' %}">
+          	{% csrf_token %}
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-rose text-center">
+                <h4 class="card-title">Acceder</h4>
+                <div class="social-line">
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-facebook-square"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body ">
+
+                <p class="card-description text-center">NTC</p>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nombre de Usuario..." name="username"  required="" id="id_username" maxlength="254">
+                  </div>
+                </span>
+
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Contraseña..."name="password" required="" id="id_password">
+                  </div>
+                </span>
+              </div>
+              <div class="card-footer justify-content-center">
+                    <input type="submit" value="Entrar" class="btn btn-rose btn-link btn-lg" />
+          <input type="hidden" name="next" value="{{ next }}" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <footer class="footer ">
+
+      </footer>
+    </div>
+  </div>
+
+	
+</body>
+<!--   Core JS Files   -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="{% static 'js/core/popper.min.js' %}"></script>-->
+<script src="{% static 'js/bootstrap-material-design.js' %}"></script>
+<script src="{% static 'js/modernizr.js' %}"></script>
+<script src="{% static 'js/material-dashboard.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js' %}"></script>
+
+<script src="{% static 'js/demo.js' %}"></script>
+<script type="text/javascript">
+  $().ready(function() {
+    demo.checkFullPageBackgroundImage();
+
+    setTimeout(function() {
+      // after 1000 ms we add the class animated to the login/register card
+      $('.card').removeClass('card-hidden');
+    }, 700)
+  });
+</script>
+</html>
