@@ -22,9 +22,11 @@ def inicio(request):
 
 
 def send_email(request):
-
     subject = request.POST.get('Examenes a responder', 'Examenes a responder')
-    message = request.POST.getlist('tipo_examen')
+    list_tipo = request.POST.getlist('tipo_examen[]')
+    message =''
+    for x in list_tipo:
+    	message = message +','+x
     from_email = request.POST.get('ideas.jaed@gmail.com', 'ideas.jaed@gmail.com')
     sd = request.POST['email_cliente']
     if subject and message and from_email:
